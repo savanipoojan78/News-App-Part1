@@ -50,10 +50,6 @@ class NewsAdapter extends ArrayAdapter<News> {
         // Find the news at the given position in the list of news
         News currentNews = getItem(position);
 
-        // Find the ImageView with view ID image
-        ImageView imageView = listItemView.findViewById(R.id.image);
-        // Display the image for the current news in that ImageView
-        Picasso.get().load(currentNews.getImage()).into(imageView);
 
         // Find the TextView with view ID title
         TextView titleView = listItemView.findViewById(R.id.title);

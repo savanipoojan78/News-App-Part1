@@ -171,27 +171,27 @@ final class QueryUtils {
                 String sectionName = currentNews.getString("sectionName");
 
                 //"Tags" element
-                JSONArray tags = currentNews.getJSONArray("tags");
+//                JSONArray tags = currentNews.getJSONArray("tags");
 
                 //If "tags" array is not null
                 String authorFullName = "";
-                if (!tags.isNull(0)) {
-                    JSONObject currentTag = tags.getJSONObject(0);
-
-                    //Author first name
-                    String authorFirstName = !currentTag.isNull("firstName") ? currentTag.getString("firstName") : "";
-
-                    //Author last name
-                    String authorLastName = !currentTag.isNull("lastName") ? currentTag.getString("lastName") : "";
-
-                    //Author full name
-                    authorFullName = StringUtils.capitalize(authorFirstName.toLowerCase().trim()) + " " + StringUtils.capitalize(authorLastName.toLowerCase().trim());
-                    if (authorFirstName.trim() != "" || authorLastName.trim() != "") {
-                        authorFullName = ("Author: ").concat(authorFullName);
-                    } else {
-                        authorFullName = "";
-                    }
-                }
+//                if (!tags.isNull(0)) {
+//                    JSONObject currentTag = tags.getJSONObject(0);
+//
+//                    //Author first name
+//                    String authorFirstName = !currentTag.isNull("firstName") ? currentTag.getString("firstName") : "";
+//
+//                    //Author last name
+//                    String authorLastName = !currentTag.isNull("lastName") ? currentTag.getString("lastName") : "";
+//
+//                    //Author full name
+//                    authorFullName = StringUtils.capitalize(authorFirstName.toLowerCase().trim()) + " " + StringUtils.capitalize(authorLastName.toLowerCase().trim());
+//                    if (authorFirstName.trim() != "" || authorLastName.trim() != "") {
+//                        authorFullName = ("Author: ").concat(authorFullName);
+//                    } else {
+//                        authorFullName = "";
+//                    }
+//                }
 
                 // Extract the value for the key called "webPublicationDate"
                 String originalPublicationDate = currentNews.getString("webPublicationDate");
@@ -211,14 +211,14 @@ final class QueryUtils {
                 String url = currentNews.getString("webUrl");
 
                 // Extract the value for the key called "fields" -> "thumbnail"
-                String image = currentNews.getJSONObject("fields").getString("thumbnail");
-                if(image == "") {
-                    image = "http://via.placeholder.com/500x500";
-                }
+//                String image = currentNews.getJSONObject("fields").getString("thumbnail");
+//                if(image == "") {
+//                    image = "http://via.placeholder.com/500x500";
+//                }
 
                 // Create a new {@link News} object with the title, section name, publication date,
                 // and url from the JSON response.
-                News news = new News(title, sectionName, authorFullName, publicationDate, url, image);
+                News news = new News(title, sectionName, authorFullName, publicationDate, url);
 
                 // Add the new {@link News} to the list of news.
                 newsList.add(news);

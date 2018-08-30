@@ -35,7 +35,7 @@ class News {
     /**
      * Image for the news
      */
-    private final String newsImage;
+
 
     /**
      * Constructs a new {@link News} object.
@@ -45,15 +45,15 @@ class News {
      * @param authorFullName  is the news author full name
      * @param publicationDate is the news publication date
      * @param url             is the website URL to find more details about the news
-     * @param image           is the image for the news
+
      */
-    public News(String title, String section, String authorFullName, Date publicationDate, String url, String image) {
+    public News(String title, String section, String authorFullName, Date publicationDate, String url) {
         newsTitle = title;
         newsSectionName = section;
         newsAuthorName = authorFullName;
         newsPublicationDate = publicationDate;
         newsUrl = url;
-        newsImage = image;
+
     }
 
     /**
@@ -91,10 +91,6 @@ class News {
         return newsUrl;
     }
 
-    /**
-     * Returns the image for the news.
-     */
-    public String getImage() {
-        return newsImage;
-    }
+
+
 }
