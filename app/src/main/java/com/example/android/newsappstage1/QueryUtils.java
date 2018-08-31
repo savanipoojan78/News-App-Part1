@@ -211,7 +211,7 @@ final class QueryUtils {
                 String url = currentNews.getString("webUrl");
 
                 // Extract the value for the key called "fields" -> "thumbnail"
-                
+
                 News news = new News(title, sectionName, authorFullName, publicationDate, url);
 
                 // Add the new {@link News} to the list of news.

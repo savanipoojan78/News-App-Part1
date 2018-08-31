@@ -23,8 +23,7 @@ public class NewsActivity extends AppCompatActivity {
     /**
      * URL for news data from the dataset
      */
-    private static final String REQUEST_URL ="https://content.guardianapis.com/search?q=debates&show-tags=contributor&api-key=be252dea-702f-42f9-8ca8-0b32a6fd30c2";
-//            "https://content.guardianapis.com/technology?api-key=be252dea-702f-42f9-8ca8-0b32a6fd30c2";
+    private static final String REQUEST_URL =BuildConfig.API_KEY;
     /**
      * Constant value for the news loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
