@@ -5,11 +5,14 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,8 +30,9 @@ public class NewsActivity extends AppCompatActivity {
      */
     private static final String Api_key=BuildConfig.API_KEY;
     private static final String URL_API_KEY = "&api-key=" + Api_key;
-    private static final String REQUEST_URL_String ="https://content.guardianapis.com/search?q=debates&show-tags=contributor";
-    private static final String REQUEST_URL =REQUEST_URL_String+URL_API_KEY;
+    private static final String REQUEST_URL_String ="https://content.guardianapis.com/search?";
+    private static final String URL_EXTRAS="&show-tags=contributor";
+    private static final String LOG_TAG = "NEWSACTIVITY_URL";
     /**
      * Constant value for the news loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
@@ -54,7 +58,30 @@ public class NewsActivity extends AppCompatActivity {
         @Override
         public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
             // Create a new loader for the given URL
-            return new NewsLoader(currentContext, REQUEST_URL);
+            String SECTION_CHOICE = getPreferenceStringValue(R.string.pref_topic_key, R.string.by_default_tags);
+            String ORDER_BY = getPreferenceStringValue(R.string.pref_order_by_key, R.string.pref_order_label_1_value);
+            StringBuilder stringBuilder=new StringBuilder();
+            stringBuilder.append(REQUEST_URL_String);
+            if(SECTION_CHOICE!=null)
+            {
+                stringBuilder.append(SECTION_CHOICE);
+
+            }
+            else{
+                stringBuilder.append(getString(R.string.by_default_tags));
+            }
+            if(ORDER_BY!=null)
+            {
+                stringBuilder.append("&order-by="+ORDER_BY);
+
+            }
+            else{
+                stringBuilder.append("&order-by="+getString(R.string.pref_order_by_default));
+            }
+            stringBuilder.append(URL_EXTRAS);
+            stringBuilder.append(URL_API_KEY);
+            Log.i(LOG_TAG, "API GUARDIAN_REQUEST_URL: " + stringBuilder.toString());
+            return new NewsLoader(currentContext, stringBuilder.toString());
         }
 
         @Override
@@ -164,6 +191,13 @@ public class NewsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+    }
+    public String getPreferenceStringValue(int key, int defaultValue) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getString(
+                getString(key),
+                getString(defaultValue)
+        );
     }
 
 }

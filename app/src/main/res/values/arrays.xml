@@ -10,7 +10,7 @@
         <item>@string/general_topic_1_value</item>
         <item>@string/general_topic_2_value</item>
         <item>@string/general_topic_3_value</item>
-        <item>@string/general_topic_3_value</item>
+        <item>@string/general_topic_4_value</item>
     </string-array>
     <string-array name="pref_order_by_labels">
         <item>@string/pref_order_by_newest_label</item>
