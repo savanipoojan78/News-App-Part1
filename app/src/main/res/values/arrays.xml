@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_topic_labels">
+    <item name="topic_1">@string/general_topic_1</item>
+    <item name="topic_2">@string/general_topic_2</item>
+    <item name="topic_3">@string/general_topic_3</item>
+    <item name="topic_4">@string/general_topic_4</item>
+    </string-array>
+    <string-array name="pref_topic_values">
+        <item>@string/general_topic_1_value</item>
+        <item>@string/general_topic_2_value</item>
+        <item>@string/general_topic_3_value</item>
+        <item>@string/general_topic_3_value</item>
+    </string-array>
+    <string-array name="pref_order_by_labels">
+        <item>@string/pref_order_by_newest_label</item>
+        <item>@string/pref_order_by_oldest_label</item>
+
+    </string-array>
+    <string-array name="pref_order_by_values">
+        <item>@string/pref_order_label_1_value</item>
+        <item>@string/pref_order_label_2_value</item>
+    </string-array>
+</resources>

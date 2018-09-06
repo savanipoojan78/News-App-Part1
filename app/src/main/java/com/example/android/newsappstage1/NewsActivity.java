@@ -10,6 +10,8 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,7 +25,10 @@ public class NewsActivity extends AppCompatActivity {
     /**
      * URL for news data from the dataset
      */
-    private static final String REQUEST_URL =BuildConfig.API_KEY;
+    private static final String Api_key=BuildConfig.API_KEY;
+    private static final String URL_API_KEY = "&api-key=" + Api_key;
+    private static final String REQUEST_URL_String ="https://content.guardianapis.com/search?q=debates&show-tags=contributor";
+    private static final String REQUEST_URL =REQUEST_URL_String+URL_API_KEY;
     /**
      * Constant value for the news loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
@@ -141,4 +146,24 @@ public class NewsActivity extends AppCompatActivity {
             emptyStateTextView.setText(R.string.no_internet_connection);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+        case R.id.setting:
+            Intent i=new Intent(NewsActivity.this,SettingActivity.class);
+            startActivity(i);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
 }

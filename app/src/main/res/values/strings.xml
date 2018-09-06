@@ -11,4 +11,23 @@
 
     <!-- Content description text for news image [CHAR LIMIT=100] -->
     <string name="news_image">News image</string>
+    <string name="general_topic_1">Art &amp;Design</string>
+    <string name="general_topic_2">Education</string>
+    <string name="general_topic_3">Film</string>
+    <string name="general_topic_4">Music</string>
+    <string name="general_topic_1_value">section=artanddesign</string>
+    <string name="general_topic_2_value">section=education&amp;editions=us/education</string>
+    <string name="general_topic_3_value">section=film&amp;editions=us/film</string>
+    <string name="general_topic_4_value">section=music</string>
+    <string name="pref_topic_key">topic</string>
+    <string name="pref_topic_title">Topic</string>
+
+    <string name="pref_order_by_title">Order By</string>
+    <string name="pref_order_by_newest_label">Newest</string>
+    <string name="pref_order_by_oldest_label">Oldest</string>
+    <string name="pref_order_label_1_value">newest</string>
+    <string name="pref_order_label_2_value">oldest</string>
+    <string name="pref_order_by_key" translatable="false">order_by</string>
+
+
 </resources>
